@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { preview } from "../assets";
 import { getRandomPrompt } from "../utils";
-import { Formfield, Loader, CreateCard } from "../components";
+import { Formfield, Loader } from "../components";
 
 const CreatePost = () => {
   const navigate = useNavigate();
@@ -120,6 +120,9 @@ const CreatePost = () => {
             handleSurpriseMe={handleSurpriseMe}
           />
 
+          {imageArray.length !== 0 && (
+            <p>Please select an image which you wanted to share</p>
+          )}
           <div className="flex gap-1 max-sm:flex-col">
             {imageArray.length !== 0 ? (
               imageArray.map((item, index) => (
@@ -185,7 +188,7 @@ const CreatePost = () => {
             className="mt-3 text-white bg-[#6469ff] font-medium rounded-md 
             text-sm w-full sm:w-auto px-5 py-2.5 text-center"
           >
-            {loading ? "SHaring..." : "Share with the community"}
+            {loading ? "Sharing..." : "Share with the community"}
           </button>
         </div>
       </form>
